@@ -1,0 +1,36 @@
+{
+  "name": "rxjs-ajax-request",
+  "version": "0.1.0",
+  "description": "Simple utility for ajax requests that uses rxjs/ajax.",
+  "main": "index.js",
+  "repository": "git@github.com:maximlysenko/rxjs-ajax-request.git",
+  "author": "Max Lysenko",
+  "license": "MIT",
+  "private": false,
+  "scripts": {
+    "lint": "eslint src",
+    "test": "jest test",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage --collectCoverageFrom=src/**/*.js",
+    "clean": "rimraf dist",
+    "precommit": "lint && test"
+  },
+  "dependencies": {
+    "querystring": "^0.2.0",
+    "rxjs": "^6.5.4"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.8.4",
+    "@babel/core": "^7.8.4",
+    "@babel/preset-env": "^7.8.4",
+    "eslint": "^6.8.0",
+    "husky": "^4.2.3",
+    "jest": "^25.1.0",
+    "rimraf": "^3.0.2"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "yarn lint && yarn test"
+    }
+  }
+}
