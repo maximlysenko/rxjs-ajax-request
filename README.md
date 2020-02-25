@@ -1,6 +1,8 @@
 # rxjs-ajax-request
 Simple utility for ajax requests that uses rxjs/ajax. Suitable only if you use rxjs in your project.
 
+[![npm](https://circleci.com/gh/maximlysenko/rxjs-ajax-request.svg?style=shield)](https://www.npmjs.com/package/rxjs-ajax-request)
+
 ## Install
 `npm i --save rxjs-ajax-request`
 
