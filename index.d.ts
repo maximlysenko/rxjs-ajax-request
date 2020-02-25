@@ -6,7 +6,7 @@ export type RequestOptions = {
     method?: string
     headers?: { [key: string]: string }
     search?: { [key: string]: any }
-    responseType?: string
+    responseType?: XMLHttpRequestResponseType
 }
 
 export type RequesterConfig = {

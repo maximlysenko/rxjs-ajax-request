@@ -26,7 +26,7 @@
   ],
   "peerDependencies": {
     "querystring": "^0.2.0",
-    "rxjs": "^6.5.4"
+    "rxjs": "^6.0.0"
   },
   "devDependencies": {
     "@babel/core": "^7.8.4",
