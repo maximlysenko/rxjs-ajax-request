@@ -1,0 +1,6 @@
+node_modules/
+test/
+src/
+.babelrc
+.eslintrc.js
+rollup.config.js
