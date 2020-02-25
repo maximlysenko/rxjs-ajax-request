@@ -14,8 +14,11 @@
     "test:coverage": "jest --coverage --collectCoverageFrom=src/**/*.js",
     "clean": "rimraf dist",
     "build": "rollup -c && uglifyjs dist/index.js -o dist/index.js",
-    "precommit": "lint && test"
+    "prepublish": "yarn clean && yarn lint && yarn test && yarn build"
   },
+  "files": [
+    "dist"
+  ],
   "dependencies": {
     "querystring": "^0.2.0",
     "rxjs": "^6.5.4"
