@@ -2,7 +2,7 @@
   "name": "rxjs-ajax-request",
   "version": "0.1.0",
   "description": "Simple utility for ajax requests that uses rxjs/ajax.",
-  "main": "index.js",
+  "main": "dist/index.js",
   "repository": "git@github.com:maximlysenko/rxjs-ajax-request.git",
   "author": "Max Lysenko",
   "license": "MIT",
@@ -13,6 +13,7 @@
     "test:watch": "jest --watch",
     "test:coverage": "jest --coverage --collectCoverageFrom=src/**/*.js",
     "clean": "rimraf dist",
+    "build": "rollup -c",
     "precommit": "lint && test"
   },
   "dependencies": {
@@ -26,7 +27,10 @@
     "eslint": "^6.8.0",
     "husky": "^4.2.3",
     "jest": "^25.1.0",
-    "rimraf": "^3.0.2"
+    "rimraf": "^3.0.2",
+    "rollup": "^1.31.1",
+    "rollup-plugin-babel": "^4.3.3",
+    "rollup-plugin-uglify": "^6.0.4"
   },
   "husky": {
     "hooks": {
