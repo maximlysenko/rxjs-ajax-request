@@ -17,9 +17,10 @@
     "prepublish": "yarn clean && yarn lint && yarn test && yarn build"
   },
   "files": [
-    "dist"
+    "dist",
+    "index.d.ts"
   ],
-  "dependencies": {
+  "peerDependencies": {
     "querystring": "^0.2.0",
     "rxjs": "^6.5.4"
   },
