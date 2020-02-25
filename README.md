@@ -23,3 +23,6 @@ const requester = createRequester(config);
 
 requester.request("url", {method: "POST"})
 ```
+
+# License
+MIT
