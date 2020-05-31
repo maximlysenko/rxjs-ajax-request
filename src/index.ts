@@ -4,18 +4,20 @@ import { Requester, RequesterConfig } from "./models";
 import { buildRequestUrl, extractHeaders, removeCustomKeys } from "./helpers";
 
 export default function createRequester(
-  config: RequesterConfig = { includeJSONHeaders: true }
+  config: RequesterConfig = {}
 ): Requester {
+  const mergedConfig = {includeJSONHeaders: true, ...config};
+
   return {
     request: function (url: string, options = {}): Observable<AjaxResponse> {
       const rUrl = buildRequestUrl(url, options.search);
       const rHeaders = extractHeaders(
         options,
-        Boolean(config.includeJSONHeaders)
+        Boolean(mergedConfig.includeJSONHeaders)
       );
       const ajaxRequest = removeCustomKeys(options);
 
-      if (config.log) {
+      if (mergedConfig.log) {
         console.group("Ajax Request");
         console.log("url: %s", rUrl);
         console.log("headers:", rHeaders);

@@ -18,7 +18,7 @@ describe("createRequester", () => {
 		global.console = originalConsole
 	})
 
-	test("createRequester - no config, no logs", () => {
+	test("No config no logs", () => {
 		const requester = createRequester();
 
 		requester.request("http://localhost:3000");
@@ -28,7 +28,7 @@ describe("createRequester", () => {
 		expect(console.groupEnd).not.toHaveBeenCalled();
 	});
 
-	test("createRequester - logs request info to console if log=true", () => {
+	test("Should log request info to console if log=true", () => {
 		const requester = createRequester({log: true});
 		const url = "http://localhost:3000"
 		const options = {
@@ -43,7 +43,8 @@ describe("createRequester", () => {
 		expect(console.group).toHaveBeenCalledWith("Ajax Request");
 		expect(console.log).toHaveBeenNthCalledWith(1, "url: %s", url);
 		expect(console.log).toHaveBeenNthCalledWith(2, "headers:", {
-			"Authorization": "Bearer token"
+			"Authorization": "Bearer token",
+			"accept": "application/json",
 		});
 		expect(console.log).toHaveBeenNthCalledWith(3, "options:", {method: "POST"});
 		expect(console.groupEnd).toHaveBeenCalled();
