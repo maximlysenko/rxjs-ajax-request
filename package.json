@@ -14,7 +14,8 @@
     "limit": "size-limit",
     "test": "jest test",
     "test:watch": "jest --watch",
-    "test:coverage": "jest --coverage --collectCoverageFrom=src/**/*.ts"
+    "test:coverage": "jest --coverage --collectCoverageFrom=src/**/*.ts",
+    "prepare": "npm run clean && npm run lint && npm test && npm run build"
   },
   "typings": "dist/*.d.ts",
   "keywords": [
