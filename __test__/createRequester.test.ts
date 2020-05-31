@@ -1,4 +1,4 @@
-import createRequester from "../src/createRequester"
+import createRequester from "../src"
 
 jest.mock("rxjs/ajax", () => ({ajax: jest.fn()}))
 
@@ -6,6 +6,7 @@ describe("createRequester", () => {
 	const originalConsole = global.console;
 
 	beforeAll(() => {
+		// @ts-ignore
 		global.console = {
 			log: jest.fn(),
 			group: jest.fn(),
@@ -17,16 +18,14 @@ describe("createRequester", () => {
 		global.console = originalConsole
 	})
 
-	test("createRequester - throw if empty url", () => {
+	test("createRequester - no config, no logs", () => {
 		const requester = createRequester();
 
-		expect(() => requester.request()).toThrow(Error("No request url provided"))
-	});
+		requester.request("http://localhost:3000");
 
-	test("createRequester - empty config", () => {
-		const requester = createRequester();
-
-		expect(() => requester.request("http://localhost:3000", {})).not.toThrow()
+		expect(console.log).not.toHaveBeenCalled();
+		expect(console.group).not.toHaveBeenCalled();
+		expect(console.groupEnd).not.toHaveBeenCalled();
 	});
 
 	test("createRequester - logs request info to console if log=true", () => {
@@ -44,7 +43,6 @@ describe("createRequester", () => {
 		expect(console.group).toHaveBeenCalledWith("Ajax Request");
 		expect(console.log).toHaveBeenNthCalledWith(1, "url: %s", url);
 		expect(console.log).toHaveBeenNthCalledWith(2, "headers:", {
-			"Accept": "application/json",
 			"Authorization": "Bearer token"
 		});
 		expect(console.log).toHaveBeenNthCalledWith(3, "options:", {method: "POST"});

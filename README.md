@@ -4,22 +4,22 @@
 [![npm](https://api.codeclimate.com/v1/badges/9a14939e1436d0a0b866/maintainability)](https://www.npmjs.com/package/rxjs-ajax-request)
 
 ## Install
-`npm i --save rxjs-ajax-request`
+`npm i -S rxjs-ajax-request`
 
 or
 
 `yarn add rxjs-ajax-request`
 
 ## Usage
-```javascript
+```typescript
 import createRequester from "rxjs-ajax-request"
 
-const config = {
-    log: isDev, // where "isDev" - your boolean indicating dev environment 
-};
-const requester = createRequester(config);
+const requester = createRequester({
+    log?: isDev, // where "isDev" - your boolean indicating dev environment 
+    includeJSONHeaders?: true,
+});
 
-requester.request("url", {method: "POST"})
+requester.request("url", {method: "POST"});
 ```
 
 # License

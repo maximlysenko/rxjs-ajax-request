@@ -1,22 +1,9 @@
 module.exports = {
-	"env": {
-		"browser": true,
-		"es6": true
-	},
-	"extends": "eslint:recommended",
-	"globals": {
-		"Atomics": "readonly",
-		"SharedArrayBuffer": "readonly"
-	},
-	"parserOptions": {
-		"ecmaVersion": 2018,
-		"sourceType": "module"
-	},
-	"rules": {
-		"indent": [
-			"error",
-			"tab"
-		],
+	root: true,
+	extends: ["eslint:recommended", "plugin:@typescript-eslint/recommended"],
+	parser: "@typescript-eslint/parser",
+	plugins: ["@typescript-eslint"],
+	rules: {
 		"linebreak-style": [
 			"error",
 			"unix"
@@ -25,9 +12,5 @@ module.exports = {
 			"error",
 			"double"
 		],
-		"semi": [
-			"error",
-			"never"
-		]
 	}
 }

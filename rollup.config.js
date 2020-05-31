@@ -1,17 +1,19 @@
-import babel from "rollup-plugin-babel"
-import commonjs from "rollup-plugin-commonjs"
-import {uglify} from "rollup-plugin-uglify"
+import { uglify } from "rollup-plugin-uglify";
+import typescript from "@rollup/plugin-typescript";
 
 export default {
-	input: "src/createRequester.js",
-	output: {
-		file: "dist/index.js",
-		format: "cjs",
-	},
-	external: ["rxjs/ajax", "querystring"],
-	plugins: [
-		babel(),
-		commonjs(),
-		uglify(),
-	],
-}
+  input: "./src/index.ts",
+  output: {
+    dir: "dist",
+    format: "cjs",
+  },
+  external: ["rxjs/ajax", "querystring"],
+  plugins: [
+    typescript({
+      declaration: true,
+      declarationDir: "dist",
+      rootDir: "src",
+    }),
+    uglify(),
+  ],
+};
