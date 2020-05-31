@@ -1,6 +1,6 @@
 {
   "name": "rxjs-ajax-request",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Simple utility for ajax requests that uses rxjs/ajax. Suitable only if you use rxjs in your project.",
   "main": "dist/index.js",
   "repository": "git@github.com:maximlysenko/rxjs-ajax-request.git",
@@ -17,7 +17,7 @@
     "test:coverage": "jest --coverage --collectCoverageFrom=src/**/*.ts",
     "prepare": "npm run clean && npm run lint && npm test && npm run build"
   },
-  "typings": "dist/*.d.ts",
+  "typings": "dist/index.d.ts",
   "keywords": [
     "rxjs",
     "ajax"
