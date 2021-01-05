@@ -19,7 +19,8 @@ const requester = createRequester({
     includeJSONHeaders?: true,
 });
 
-requester.request("url", {method: "POST"});
+requester.request("https://example.com", {method: "POST", search: {name: "world", age: 1}});
+// Produces https://example.com?name=world&age=1
 ```
 
 # License
